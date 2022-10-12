@@ -1,13 +1,12 @@
-#pip install webdriver_manager chrome manager 관리
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
-import time
-
 from wordcloud import WordCloud,STOPWORDS
 import matplotlib.pyplot as plt
+
+# pip install webdriver_manager -> chrome manager 관리를 위해 추가 설치해야함
 
 f= open('wordcloud.txt','w',encoding='UTF-8')
 
@@ -21,7 +20,7 @@ driver.get("https://namu.wiki/w/KBO%20%EB%A6%AC%EA%B7%B8")
 kbo = driver.find_elements(by=By.XPATH,value="//div[text()]") # text 속성을 가진 요소들을 다 크롤링
 
 for k in kbo:
-    f.write(k.text) #문서화 시키기 위해서 txt 파일에 저장중
+    f.write(k.text) #문서화 시키기 위해서 txt 파일에 저장중. 잘 긁어왔는지 확인 + data 만들기 
     
 driver.close()
 
